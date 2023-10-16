@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Blur Web",
+    "version": "1.0.0",
+    "action": {
+        "default_title": "My Web Shortcuts",
+        "default_popup": "src/popup/popup.html"
+    },
+    "background": {
+        "service_worker": "src/background/background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*//*.linkedin.com/*"
+            ],
+            "all_frames": true,
+            "js": [
+                "src/scripts/blur.js"
+            ]
+        }
+    ],
+    "options_page": "src/options/options.html",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting",
+        "storage"
+    ]
+}
